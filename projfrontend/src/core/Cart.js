@@ -12,7 +12,8 @@ const Cart = () => {
   useEffect(() => {
     setProducts(loadCart());
   }, [reload]);
-  const loadAllProducts = () => {
+
+  const loadAllProducts = (products) => {
     return (
       <div>
         <h2>This section is to load products</h2>
@@ -29,8 +30,7 @@ const Cart = () => {
       </div>
     );
   };
-
-  const loadCheckOut = () => {
+  const loadCheckout = () => {
     return (
       <div>
         <h2>This section for checkout</h2>
@@ -39,12 +39,19 @@ const Cart = () => {
   };
 
   return (
-    <Base title="Cart Page" description="Readdy to checkout">
+    <Base title="Cart Page" description="Ready to checkout">
       <div className="row text-center">
-        <div className="col-6">{loadAllProducts()}</div>
-        <div className="col-6">{loadCheckOut()}</div>
+        <div className="col-6">
+          {products.length > 0 ? (
+            loadAllProducts(products)
+          ) : (
+            <h3>NO products in cart</h3>
+          )}
+        </div>
+        <div className="col-6">Payment Section</div>
       </div>
     </Base>
   );
 };
+
 export default Cart;
