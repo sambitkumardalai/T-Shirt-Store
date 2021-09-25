@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Base from "../core/Base";
 import { Link } from "react-router-dom";
-import { isAutheticated } from "../auth/helper";
 import { getCategories, deleteCategory } from "./helper/adminapicall";
+import { isAutheticated } from "../auth/helper";
 
 const ManageCategories = () => {
   const [categories, setCategories] = useState([]);

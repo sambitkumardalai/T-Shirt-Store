@@ -41,6 +41,7 @@ exports.getAllCategory = (req, res) => {
 
 exports.updateCategory = (req, res) => {
   const category = req.category;
+  if (!category) return res.send("No category found...");
   category.name = req.body.name;
   console.log(category.name);
   category.save((err, updatedCategory) => {
